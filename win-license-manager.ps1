@@ -15,7 +15,11 @@ Ein interaktives PowerShell-Skript zur vereinfachten Verwaltung von Windows-Lize
 Dieses Skript bietet ein benutzerfreundliches Konsolenmenü zur Steuerung des Windows Software Licensing Management Tools (slmgr).
 #>
 
+----------------------------------------------------------
+
 Prüfen, ob das Skript als Administrator ausgeführt wird
+
+----------------------------------------------------------
 
 function Test-IsAdmin {
 $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
@@ -33,7 +37,11 @@ Read-Host "Drücken Sie die Eingabetaste zum Beenden..."
 exit
 }
 
---- Hilfsfunktionen ---
+----------------------------------------------------------
+
+Hilfsfunktionen
+
+----------------------------------------------------------
 
 function Show-Header {
 Clear-Host
@@ -50,9 +58,13 @@ Write-Host "----------------------------------------------------------" -Foregro
 Read-Host "Drücken Sie die Eingabetaste, um zum Hauptmenü zurückzukehren..."
 }
 
---- Hauptmenü Funktionen ---
+----------------------------------------------------------
 
-1. Lizenzstatus prüfen
+Hauptmenü Funktionen
+
+----------------------------------------------------------
+
+--- 1. Lizenzstatus prüfen ---
 
 function Show-LicenseInfoBasic {
 Show-Header
@@ -75,7 +87,7 @@ slmgr.vbs /xpr
 Pause-Console
 }
 
-2. Produkt-Key verwalten
+--- 2. Produkt-Key verwalten ---
 
 function Install-ProductKey {
 Show-Header
@@ -109,7 +121,7 @@ slmgr.vbs /cpky
 Pause-Console
 }
 
-3. Aktivierung durchführen & erneuern
+--- 3. Aktivierung durchführen und erneuern ---
 
 function Activate-WindowsOnline {
 Show-Header
@@ -131,7 +143,7 @@ Write-Host "Vorgang abgebrochen." -ForegroundColor Green
 Pause-Console
 }
 
-4. KMS-Server-Steuerung
+--- 4. KMS-Server-Steuerung ---
 
 function Set-KmsServer {
 Show-Header
@@ -153,7 +165,11 @@ slmgr.vbs /ckms
 Pause-Console
 }
 
---- Hauptschleife (Menüführung) ---
+----------------------------------------------------------
+
+Hauptschleife (Menüführung)
+
+----------------------------------------------------------
 
 do {
 Show-Header
